@@ -1,71 +1,71 @@
-import { LatestTransaction } from './latestTransaction';
-import { Owner } from './owner';
-import { User } from './user';
-import { Wallet } from './wallet';
-import { LoginResponse } from './loginResponse';
-import { Login } from './login';
-import { Register } from './register';
-import { UpdateUser } from './updateUser';
-import { Me } from './me';
-import { Deposit } from './deposit';
-import { Transaction } from './transaction';
-import { Withdraw } from './withdraw';
-import { TransactionProps } from './transactionParams';
-import { TransactionResponse } from './transactionResponse';
-import { WithdrawResponse } from './withdrawResponse';
-import { TransactionBetweenUser } from './transactionBetweenUser';
-import { TransactionPay } from './transactionPay';
-import { PayResponse } from './payResponse';
-import { AppAuth } from './appAuth';
-import { AppInfo } from './appInfo';
-import { Invoice } from './invoice';
-import { InvoiceResponse } from './invoiceResponse';
-import { AppTransaction } from './appTransaction';
-import { AppOneTransactionResponse } from './appOneTransactionResponse';
-import { PaymentLinkResponse } from './paymentLinkResponse';
-import { PaymentLink } from './paymentLink';
-import { ServiceResponse } from './servicesResponse';
-import { Service } from './service';
-import { PairsAverageResponse } from './pairsAverageResponse';
-import { OffersParams } from './offersParams';
-import { OffersResponse } from './offersResponse';
-import { Offer } from './offer';
-import { Coin } from './coin';
-import { CurrentRates } from './currentRates';
+import type { AppAuth } from './appAuth'
+import type { AppInfo } from './appInfo'
+import type { AppOneTransactionResponse } from './appOneTransactionResponse'
+import type { AppTransaction } from './appTransaction'
+import type { Coin } from './coin'
+import type { CurrentRates } from './currentRates'
+import type { Deposit } from './deposit'
+import type { Invoice } from './invoice'
+import type { InvoiceResponse } from './invoiceResponse'
+import type { LatestTransaction } from './latestTransaction'
+import type { Login } from './login'
+import type { LoginResponse } from './loginResponse'
+import type { Me } from './me'
+import type { Offer } from './offer'
+import type { OffersParams } from './offersParams'
+import type { OffersResponse } from './offersResponse'
+import type { Owner } from './owner'
+import type { PairsAverageResponse } from './pairsAverageResponse'
+import type { PaymentLink } from './paymentLink'
+import type { PaymentLinkResponse } from './paymentLinkResponse'
+import type { PayResponse } from './payResponse'
+import type { Register } from './register'
+import type { Service } from './service'
+import type { ServiceResponse } from './servicesResponse'
+import type { Transaction } from './transaction'
+import type { TransactionBetweenUser } from './transactionBetweenUser'
+import type { TransactionProps } from './transactionParams'
+import type { TransactionPay } from './transactionPay'
+import type { TransactionResponse } from './transactionResponse'
+import type { UpdateUser } from './updateUser'
+import type { User } from './user'
+import type { Wallet } from './wallet'
+import type { Withdraw } from './withdraw'
+import type { WithdrawResponse } from './withdrawResponse'
 
-export {
-  LatestTransaction,
-  Owner,
-  User,
-  Wallet,
-  LoginResponse,
-  Login,
-  Register,
-  UpdateUser,
-  Me,
-  Deposit,
-  Transaction,
-  Withdraw,
-  TransactionProps,
-  TransactionResponse,
-  WithdrawResponse,
-  TransactionBetweenUser,
-  TransactionPay,
-  PayResponse,
+export type {
   AppAuth,
   AppInfo,
+  AppOneTransactionResponse,
+  AppTransaction,
+  Coin,
+  CurrentRates,
+  Deposit,
   Invoice,
   InvoiceResponse,
-  AppTransaction,
-  AppOneTransactionResponse,
-  PaymentLinkResponse,
-  PaymentLink,
-  ServiceResponse,
-  Service,
-  PairsAverageResponse,
+  LatestTransaction,
+  Login,
+  LoginResponse,
+  Me,
+  Offer,
   OffersParams,
   OffersResponse,
-  Offer,
-  Coin,
-  CurrentRates
-};
+  Owner,
+  PairsAverageResponse,
+  PaymentLink,
+  PaymentLinkResponse,
+  PayResponse,
+  Register,
+  Service,
+  ServiceResponse,
+  Transaction,
+  TransactionBetweenUser,
+  TransactionPay,
+  TransactionProps,
+  TransactionResponse,
+  UpdateUser,
+  User,
+  Wallet,
+  Withdraw,
+  WithdrawResponse,
+}

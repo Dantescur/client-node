@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { type AxiosInstance } from 'axios'
 
-const qvapayAPI = axios.create({
+const qvapayAPI: AxiosInstance = axios.create({
   baseURL: 'https://qvapay.com/api',
   headers: {
     Accept: 'application/json',
   },
-});
+})
 
-export default qvapayAPI;
+export { qvapayAPI }

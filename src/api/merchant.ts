@@ -1,72 +1,72 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import qvapayAPI from '../helpers/axios';
-import {
+import { qvapayAPI } from '../helpers/axios'
+import type {
   AppAuth,
   AppInfo,
   AppOneTransactionResponse,
   AppTransaction,
   Invoice,
   InvoiceResponse,
-} from '../interfaces';
+} from '../interfaces'
+import type { AxiosError, AxiosResponse } from 'axios'
 
 export const appInfo = async (auth: AppAuth): Promise<AppInfo> => {
   try {
-    const { data } = await qvapayAPI.post('/v1/info', auth);
-    return data;
+    const { data } = await qvapayAPI.post('/v1/info', auth)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const appBalance = async (auth: AppAuth): Promise<number> => {
   try {
-    const { data } = await qvapayAPI.post('/v1/balance', auth);
-    return data;
+    const { data } = await qvapayAPI.post('/v1/balance', auth)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const createInvoice = async (
-  invoice: Invoice
+  invoice: Invoice,
 ): Promise<InvoiceResponse> => {
   try {
-    const { data } = await qvapayAPI.post('/v1/create_invoice', invoice);
-    return data;
+    const { data } = await qvapayAPI.post('/v1/create_invoice', invoice)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const getTransactionsFromApp = async (
-  auth: AppAuth
+  auth: AppAuth,
 ): Promise<AppTransaction> => {
   try {
-    const { data } = await qvapayAPI.post('/v1/transactions', auth);
-    return data;
+    const { data } = await qvapayAPI.post('/v1/transactions', auth)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const getOneTransactionFromApp = async (
   auth: AppAuth,
-  id: string
+  id: string,
 ): Promise<AppOneTransactionResponse> => {
   try {
-    const { data } = await qvapayAPI.post(`/v1/transactions/${id}`, auth);
-    return data;
+    const { data } = await qvapayAPI.post(`/v1/transactions/${id}`, auth)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}

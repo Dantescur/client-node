@@ -1,1 +1,1 @@
-declare module 'qvapay-ts';
+declare module 'qvapay-ts'

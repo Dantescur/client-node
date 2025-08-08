@@ -1,12 +1,21 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2015",
+    "target": "esnext",
 
-    /* Modules */
-    "module": "commonjs" /* Specify what module code is generated. */,
+    "lib": ["es2023"],
     "rootDir": "./src",
+    /* Modules */
+    "module": "preserve" /* Specify what module code is generated. */,
+    "moduleResolution": "bundler",
+    "types": ["node"],
 
+    /* Type Checking */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": true /* Enable error reporting for expressions and declarations with an implied */,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "isolatedDeclarations": true,
     /* Emit */
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
     "removeComments": false /* Disable emitting comments. */,
@@ -14,13 +23,11 @@
     /* Interop Constraints */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-
-    /* Type Checking */
-    "strict": true /* Enable all strict type-checking options. */,
-    "noImplicitAny": true /* Enable error reporting for expressions and declarations with an implied */,
-    "declaration": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
 
     /* Completeness */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  }
+  },
+  "include": ["src/**/*", "__/test__/**/*"]
 }

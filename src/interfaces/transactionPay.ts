@@ -1,4 +1,4 @@
 export interface TransactionPay {
-  uuid: string;
-  pin: string;
+  uuid: string
+  pin: string
 }

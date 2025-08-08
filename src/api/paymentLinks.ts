@@ -1,38 +1,38 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import qvapayAPI from '../helpers/axios';
-import { PaymentLink, PaymentLinkResponse } from '../interfaces';
+import { qvapayAPI } from '../helpers/axios'
+import type { PaymentLink, PaymentLinkResponse } from '../interfaces'
+import type { AxiosError, AxiosResponse } from 'axios'
 
 export const getAllPaymentLinks = async (
-  accessToken: string
+  accessToken: string,
 ): Promise<PaymentLinkResponse[]> => {
   try {
     const { data } = await qvapayAPI.get('/payment_links', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const createPaymentLink = async (
   accessToken: string,
-  info: PaymentLink
+  info: PaymentLink,
 ): Promise<PaymentLinkResponse> => {
   try {
     const { data } = await qvapayAPI.post('/payment_links/create', info, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}

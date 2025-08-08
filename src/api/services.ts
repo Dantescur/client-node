@@ -1,38 +1,38 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import qvapayAPI from '../helpers/axios';
-import { Service, ServiceResponse } from '../interfaces';
+import { qvapayAPI } from '../helpers/axios'
+import type { Service, ServiceResponse } from '../interfaces'
+import type { AxiosError, AxiosResponse } from 'axios'
 
 export const getAllServices = async (
-  accessToken: string
+  accessToken: string,
 ): Promise<ServiceResponse> => {
   try {
     const { data } = await qvapayAPI.get('/services', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const getOneService = async (
   accessToken: string,
-  id: string
+  id: string,
 ): Promise<Service> => {
   try {
     const { data } = await qvapayAPI.get(`/services/${id}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}

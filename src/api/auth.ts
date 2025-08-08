@@ -1,43 +1,43 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import { Login, LoginResponse, Register } from '../interfaces';
-import qvapayAPI from '../helpers/axios';
+import { qvapayAPI } from '../helpers/axios'
+import type { Login, LoginResponse, Register } from '../interfaces'
+import type { AxiosError, AxiosResponse } from 'axios'
 
 export const login = async (loginData: Login): Promise<LoginResponse> => {
   try {
-    const { data } = await qvapayAPI.post('/auth/login', loginData);
-    return data;
+    const { data } = await qvapayAPI.post('/auth/login', loginData)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
-export const register = async (registerData: Register) => {
+export const register = async (registerData: Register): Promise<any> => {
   try {
-    const { data } = await qvapayAPI.post('/auth/register', registerData);
-    return data;
+    const { data } = await qvapayAPI.post('/auth/register', registerData)
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 //* accessToken es el token que retorna la función login
 export const logout = async (
-  accessToken: string
+  accessToken: string,
 ): Promise<{ message: string }> => {
   try {
     const { data } = await qvapayAPI.get('/auth/logout', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}

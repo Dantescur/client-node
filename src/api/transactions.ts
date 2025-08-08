@@ -1,102 +1,105 @@
-import { AxiosError, AxiosResponse } from 'axios';
-import qvapayAPI from '../helpers/axios';
-import {
+import { qvapayAPI } from '../helpers/axios'
+import type {
+  PayResponse,
+  TransactionBetweenUser,
+  TransactionPay,
   TransactionProps,
   TransactionResponse,
   WithdrawResponse,
-  TransactionBetweenUser,
-  TransactionPay,
-  PayResponse,
-} from '../interfaces';
+} from '../interfaces'
+import type { AxiosError, AxiosResponse } from 'axios'
 
 export const getTransactionsFromUserAuth = async (
   accessToken: string,
-  props: TransactionProps
+  props: TransactionProps,
 ): Promise<TransactionResponse[]> => {
   try {
-    const objectEntries = Object.entries(props);
-    const params = new URLSearchParams(objectEntries);
+    const objectEntries = Object.entries(props)
+    const params = new URLSearchParams(objectEntries)
     const { data } = await qvapayAPI.get('/transactions', {
       params,
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const getOneTransaction = async (
   accessToken: string,
-  id: string
+  id: string,
 ): Promise<TransactionResponse> => {
   try {
     const { data } = await qvapayAPI.get(`/transactions/${id}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const getWithdrawsFromUserAuth = async (
-  accessToken: string
+  accessToken: string,
 ): Promise<WithdrawResponse> => {
   try {
     const { data } = await qvapayAPI.get('/withdraws', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
-export const getOneWithdraw = async (accessTonek: string, id: string) => {
+export const getOneWithdraw = async (
+  accessToken: string,
+  id: string,
+): Promise<any> => {
   try {
     const { data } = await qvapayAPI.get(`/withdraws/${id}`, {
       headers: {
-        Authorization: `Bearer ${accessTonek}`,
+        Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 export const transferBetweenUser = async (
   accessToken: string,
-  transfer: TransactionBetweenUser
-) => {
+  transfer: TransactionBetweenUser,
+): Promise<any> => {
   try {
     const { data } = await qvapayAPI.post('/transactions/transfer', transfer, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
 
 /**
  * @Params
@@ -105,18 +108,18 @@ Se requiere el uuid de la transacción a pagar así como el PIN del usuario que 
  */
 export const payPendingTransaction = async (
   accessToken: string,
-  pay: TransactionPay
+  pay: TransactionPay,
 ): Promise<PayResponse> => {
   try {
     const { data } = await qvapayAPI.post('/transactions/pay', pay, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return data;
+    })
+    return data
   } catch (error) {
-    const { response } = <AxiosError>error;
-    const { data } = <AxiosResponse>response;
-    return data;
+    const { response } = error as AxiosError
+    const { data } = response as AxiosResponse
+    return data
   }
-};
+}
