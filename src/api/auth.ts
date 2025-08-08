@@ -1,43 +1,55 @@
-import { qvapayAPI } from '../helpers/axios'
-import type { Login, LoginResponse, Register } from '../interfaces'
-import type { AxiosError, AxiosResponse } from 'axios'
+import type { QvaPayClient } from '../helpers/axios'
+import type {
+  Login,
+  LoginResponse,
+  Register,
+  RegisterResponse,
+} from '../interfaces'
 
-export const login = async (loginData: Login): Promise<LoginResponse> => {
-  try {
-    const { data } = await qvapayAPI.post('/auth/login', loginData)
-    return data
-  } catch (error) {
-    const { response } = error as AxiosError
-    const { data } = response as AxiosResponse
-    return data
-  }
-}
+export class Auth {
+  constructor(private readonly client: QvaPayClient) {}
 
-export const register = async (registerData: Register): Promise<any> => {
-  try {
-    const { data } = await qvapayAPI.post('/auth/register', registerData)
-    return data
-  } catch (error) {
-    const { response } = error as AxiosError
-    const { data } = response as AxiosResponse
-    return data
-  }
-}
-
-//* accessToken es el token que retorna la función login
-export const logout = async (
-  accessToken: string,
-): Promise<{ message: string }> => {
-  try {
-    const { data } = await qvapayAPI.get('/auth/logout', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
+  async login(loginData: Login): Promise<LoginResponse> {
+    const response = await this.client.request<LoginResponse>({
+      method: 'POST',
+      url: '/auth/login',
+      data: loginData,
     })
-    return data
-  } catch (error) {
-    const { response } = error as AxiosError
-    const { data } = response as AxiosResponse
-    return data
+
+    this.client.setAuthToken(response.accessToken)
+    return response
+  }
+
+  async register(registerData: Register): Promise<RegisterResponse> {
+    const response = await this.client.request<RegisterResponse>({
+      method: 'POST',
+      url: '/auth/register',
+      data: registerData,
+    })
+    return response
+  }
+
+  async logout(): Promise<{ message: string }> {
+    const response = await this.client.request<{ message: string }>({
+      method: 'GET',
+      url: '/auth/logout',
+    })
+    this.client.clearAuthToken()
+    return response
+  }
+
+  async check(): Promise<void> {
+    await this.client.request({
+      method: 'POST',
+      url: 'auth/check',
+    })
+  }
+
+  async twoFactorCheck(code: string): Promise<any> {
+    return await this.client.request({
+      method: 'POST',
+      url: '/auth/two-factor',
+      data: code,
+    })
   }
 }
