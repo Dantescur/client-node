@@ -187,10 +187,10 @@ export class P2P {
       details: Array.isArray(params.details)
         ? JSON.stringify(params.details)
         : params.details,
-      onlyKyc: params.onlyKyc ? 1 : 0,
+      only_kyc: params.only_kyc ? 1 : 0,
       private: params.private ? 1 : 0,
-      promoteOffer: params.promoteOffer ? 1 : 0,
-      onlyVip: params.onlyVip ? 1 : 0,
+      promote_offer: params.promote_offer ? 1 : 0,
+      only_vip: params.only_vip ? 1 : 0,
     }
 
     return await this.client.request<CreateP2POfferResponse>({

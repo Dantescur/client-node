@@ -13,7 +13,6 @@ import type {
   CoinsV2Response,
   CoinV2Response,
 } from './coin'
-import type { Me } from './me'
 import type {
   AppliedP2POffer,
   ApplyToOfferResponse,
@@ -28,6 +27,18 @@ import type {
   P2POfferDetails,
   P2POffersResponse,
 } from './p2p'
+import type {
+  GoldPurchaseResponse,
+  Me,
+  MeExtendedResponse,
+  TopUpParams,
+  TopUpResponse,
+  UpdateUserParams,
+  UpdateUserResponse,
+  UserSearchResult,
+  WithdrawRequest,
+  WithdrawResponse,
+} from './user'
 
 export type {
   AppliedP2POffer,
@@ -44,9 +55,11 @@ export type {
   CreateP2POfferParams,
   CreateP2POfferResponse,
   GetOfferParams,
+  GoldPurchaseResponse,
   LoginParams,
   LoginResponse,
   Me,
+  MeExtendedResponse,
   P2PAverageResponse,
   P2PChatResponse,
   P2POffer,
@@ -54,4 +67,11 @@ export type {
   P2POffersResponse,
   RegisterParams,
   RegisterResponse,
+  TopUpParams,
+  TopUpResponse,
+  UpdateUserParams,
+  UpdateUserResponse,
+  UserSearchResult,
+  WithdrawRequest,
+  WithdrawResponse,
 }

@@ -1,4 +1,4 @@
-import type { Me } from './me'
+import type { Me } from './user'
 
 export interface LoginParams {
   email: string
@@ -6,7 +6,7 @@ export interface LoginParams {
 }
 
 export interface LoginResponse {
-  accessToken: string
+  access_token: string
   token_type: string
   me: Me
 }
@@ -22,5 +22,5 @@ export interface RegisterParams {
 
 export interface RegisterResponse {
   message: string
-  accessToken: string
+  access_token: string
 }

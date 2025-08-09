@@ -8,46 +8,46 @@ export interface P2PAverageResponse {
 
 export interface CompletedTradingPairsAverageResponse {
   average: number
-  averageBuy: number
-  averageSell: number
-  medianBuy: number
-  medianSell: number
+  average_buy: number
+  average_sell: number
+  median_buy: number
+  median_sell: number
   offers: number[]
 }
 
 export interface P2POffersResponse {
-  currentPage: number
+  current_page: number
   data: P2POffer[]
-  firstPageURL: string
+  first_page_url: string
   from: number
-  lastPage: number
-  lastPageURL: string
+  last_page: number
+  last_page_url: string
   links: {
     url: null | string
     label: string
     active: boolean
   }[]
-  nextPageURL: null
+  next_page_url: null
   path: string
-  perPage: number
-  prevPageURL: null
+  per_page: number
+  prev_page_url: null
   to: number
   total: number
 }
 
 export interface P2POffer {
   uuid: string
-  userID: number
+  user_id: number
   type: 'buy' | 'sell'
   coin: string
-  peerID: number
+  peer_id: number
   amount: string
   receive: string
-  onlyKyc: number
+  only_kyc: number
   private: number
   status: string
-  createdAt: Date
-  updatedAt: Date
+  created_at: Date
+  updated_at: Date
 }
 
 export interface GetOfferParams {
@@ -62,34 +62,34 @@ export interface GetOfferParams {
 export interface P2POfferDetails {
   id: number
   uuid: string
-  userID: number
+  user_id: number
   type: 'buy' | 'sell'
   coin: string
-  peerID: number
+  peer_id: number
   amount: string
   receive: string
   status: string
-  createdAt: string
-  updatedAt: string
-  coinData: {
+  created_at: string
+  updated_at: string
+  coin_data: {
     id: number
-    coinsCategoriesId: number
+    coins_categories_id: number
     name: string
     logo: string
     tick: string
-    feeIn: string
-    feeOut: string
-    minIn: string
-    minOut: string
+    fee_in: string
+    fee_out: string
+    min_in: string
+    min_out: string
     price: string
   }
   peer: {
     name: string
     username: string
-    profilePhotoPath: string
-    profilePhotoUrl: string
-    completeName: string
-    nameVerified: string
+    profile_photo_path: string
+    profile_photo_url: string
+    complete_name: string
+    name_verified: string
   }
   owner: {
     uuid: string
@@ -98,10 +98,10 @@ export interface P2POfferDetails {
     lastname: string
     email: string
     bio: string
-    profilePhotoPath: string
-    profilePhotoUrl: string
-    completeName: string
-    nameVerified: string
+    profile_photo_path: string
+    profile_photo_url: string
+    complete_name: string
+    name_verified: string
   }
 }
 
@@ -121,15 +121,15 @@ export interface CreateP2POfferParams {
         value: string
       }>
     | string
-  onlyKyc?: boolean | number
+  only_kyc?: boolean | number
   private?: boolean | number
-  promoteOffer?: boolean | number
-  onlyVip?: boolean | number
+  promote_offer?: boolean | number
+  only_vip?: boolean | number
 }
 
 export interface CreatedP2POffer {
   uuid: string
-  userId: number
+  user_id: number
   type: 'buy' | 'sell'
   coin: string
   amount: number
@@ -137,8 +137,8 @@ export interface CreatedP2POffer {
   only_kyc: number
   private: number
   status: string
-  updatedAt: string
-  createdAt: string
+  updated_at: string
+  created_at: string
 }
 
 export interface CreateP2POfferResponse {
@@ -149,16 +149,16 @@ export interface CreateP2POfferResponse {
 export interface AppliedP2POffer {
   id: number
   uuid: string
-  userId: number
+  user_id: number
   type: 'buy' | 'sell'
   coin: string
-  peerId: number
+  peer_id: number
   amount: string
   receive: string
-  onlyKyc: number
+  only_kyc: number
   status: string
-  createdAt: string
-  updatedAt: string
+  created_at: string
+  updated_at: string
 }
 
 export interface ApplyToOfferResponse {

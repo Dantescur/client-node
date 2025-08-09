@@ -10,14 +10,14 @@ export interface AppResponse {
   logo: string
   description: string
   callback: string
-  successURL: string
-  cancelURL: string
+  success_url: string
+  cancel_url: string
   active: boolean
   enabled: boolean
-  allowedPaymentAuth: boolean
+  allowed_payment_auth: boolean
   card: boolean
-  createdAt: Date
-  updatedAt: Date
+  created_at: Date
+  updated_at: Date
 }
 
 export interface AppCreateParams {
@@ -25,8 +25,8 @@ export interface AppCreateParams {
   url: string
   logo: string
   callback: string
-  successUrl: string
-  cancelUrl: string
+  success_url: string
+  cancel_url: string
 }
 
 export interface AppCreateResponse {

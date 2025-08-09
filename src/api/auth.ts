@@ -23,7 +23,7 @@ export class Auth {
       throw new TwoFactorRequiredError(response.info)
     }
 
-    this.client.setAuthToken(response.accessToken)
+    this.client.setAuthToken(response.access_token)
     return response
   }
 
