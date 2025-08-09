@@ -1,26 +1,33 @@
+import { TwoFactorRequiredError } from '../helpers/errors'
 import type { QvaPayClient } from '../helpers/axios'
 import type {
-  Login,
+  LoginParams,
   LoginResponse,
-  Register,
+  RegisterParams,
   RegisterResponse,
 } from '../interfaces'
 
 export class Auth {
   constructor(private readonly client: QvaPayClient) {}
 
-  async login(loginData: Login): Promise<LoginResponse> {
-    const response = await this.client.request<LoginResponse>({
+  async login(loginData: LoginParams): Promise<LoginResponse> {
+    const response = await this.client.request<
+      LoginResponse | { info: string }
+    >({
       method: 'POST',
       url: '/auth/login',
       data: loginData,
     })
 
+    if ('info' in response) {
+      throw new TwoFactorRequiredError(response.info)
+    }
+
     this.client.setAuthToken(response.accessToken)
     return response
   }
 
-  async register(registerData: Register): Promise<RegisterResponse> {
+  async register(registerData: RegisterParams): Promise<RegisterResponse> {
     const response = await this.client.request<RegisterResponse>({
       method: 'POST',
       url: '/auth/register',
