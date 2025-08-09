@@ -1,6 +1,6 @@
 import type { Me } from './me'
 
-export interface Login {
+export interface LoginParams {
   email: string
   password: string
 }
@@ -11,7 +11,7 @@ export interface LoginResponse {
   me: Me
 }
 
-export interface Register {
+export interface RegisterParams {
   name: string
   lastname?: string
   email: string
