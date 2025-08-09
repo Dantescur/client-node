@@ -11,6 +11,14 @@ export class QvaPayError extends Error {
   }
 }
 
+export class TwoFactorRequiredError extends Error {
+  readonly code = 'TWO_FACTOR_REQUIRED'
+  constructor(public readonly info: string) {
+    super(info)
+    this.name = 'TwoFactorRequiredError'
+  }
+}
+
 export function handleApiError(error: any): never {
   if (axios.isAxiosError(error)) {
     const message =

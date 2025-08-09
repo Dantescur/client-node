@@ -1,0 +1,27 @@
+// WARN: Un endpoint para obtenerlas? con q frecuencia cambian?
+export const ENABLED_CURRENCIES = {
+  SOL: 'SOL',
+  SBERBANK: 'SBERBANK',
+  ZELLE: 'ZELLE',
+  TROPIPAY: 'TROPIPAY',
+  BANK_CUP: 'BANK_CUP',
+  USDCASH: 'USDCASH',
+  BANK_EUR: 'BANK_EUR',
+  EURCASH: 'EURCASH',
+  CLASICA: 'CLASICA',
+  ETECSA: 'ETECSA',
+  BANK_MLC: 'BANK_MLC',
+  USDT: 'USDT',
+  USDTERC20: 'USDTERC20',
+  QVAPAY: 'QVAPAY',
+  BANDECPREPAGO: 'BANDECPREPAGO',
+  BOLSATM: 'BOLSATM',
+  PAYPAL: 'PAYPAL',
+  NEOMOON: 'NEOMOON',
+  CUPCASH: 'CUPCASH',
+  REMESITA: 'REMESITA',
+  USDTBSC: 'USDTBSC',
+} as const
+
+export type EnabledCurrencies =
+  (typeof ENABLED_CURRENCIES)[keyof typeof ENABLED_CURRENCIES]
