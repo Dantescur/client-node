@@ -15,11 +15,23 @@ import type {
 } from './coin'
 import type { Me } from './me'
 import type {
+  AppliedP2POffer,
+  ApplyToOfferResponse,
   CompletedTradingPairsAverageResponse,
+  CreatedP2POffer,
+  CreateP2POfferParams,
+  CreateP2POfferResponse,
+  GetOfferParams,
   P2PAverageResponse,
+  P2PChatResponse,
+  P2POffer,
+  P2POfferDetails,
+  P2POffersResponse,
 } from './p2p'
 
 export type {
+  AppliedP2POffer,
+  ApplyToOfferResponse,
   Coin,
   CoinCategory,
   CoinsResponse,
@@ -28,10 +40,18 @@ export type {
   CoinsV2Response,
   CoinV2Response,
   CompletedTradingPairsAverageResponse,
+  CreatedP2POffer,
+  CreateP2POfferParams,
+  CreateP2POfferResponse,
+  GetOfferParams,
   LoginParams,
   LoginResponse,
   Me,
   P2PAverageResponse,
+  P2PChatResponse,
+  P2POffer,
+  P2POfferDetails,
+  P2POffersResponse,
   RegisterParams,
   RegisterResponse,
 }
