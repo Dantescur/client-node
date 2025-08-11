@@ -1,4 +1,4 @@
-import { qvapayAPI } from '../helpers/axios'
+import { qvapayAPI } from '../core/client'
 import type {
   PayResponse,
   TransactionBetweenUser,

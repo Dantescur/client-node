@@ -1,4 +1,4 @@
-import type { EnabledCurrencies } from '../helpers/constants'
+import type { EnabledCurrencies } from '../core/constants'
 
 export interface P2PAverageResponse {
   name: string

@@ -22,11 +22,11 @@ export class TwoFactorRequiredError extends Error {
 export function handleApiError(error: any): never {
   if (axios.isAxiosError(error)) {
     const message =
-      typeof error.response?.data === 'object'
+      error.response?.data && typeof error.response.data === 'object'
         ? error.response.data.error ||
           error.response.data.message ||
           'API error'
-        : String(error.response?.data || error.message)
+        : String(error.response?.data ?? error.message)
 
     throw new Error(message)
   }

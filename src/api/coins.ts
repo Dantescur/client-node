@@ -1,4 +1,4 @@
-import type { QvaPayClient } from '../helpers/axios'
+import type { QvaPayClient } from '../core/client'
 import type {
   CoinsResponse,
   CoinsV2Params,

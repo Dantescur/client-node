@@ -1,5 +1,5 @@
-import { TwoFactorRequiredError } from '../helpers/errors'
-import type { QvaPayClient } from '../helpers/axios'
+import { TwoFactorRequiredError } from '../core/errors'
+import type { QvaPayClient } from '../core/client'
 import type {
   LoginParams,
   LoginResponse,

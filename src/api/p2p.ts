@@ -1,5 +1,5 @@
-import type { QvaPayClient } from '../helpers/axios'
-import type { EnabledCurrencies } from '../helpers/constants'
+import type { QvaPayClient } from '../core/client'
+import type { EnabledCurrencies } from '../core/constants'
 import type {
   ApplyToOfferResponse,
   CompletedTradingPairsAverageResponse,
