@@ -19,8 +19,8 @@ export interface Coin {
   enabled_in: number
   enabled_out: number
   enabled_p2p: number
-  price: string
-  created_at: null
+  price: number
+  created_at: Date | null
   updated_at: Date | null
 }
 

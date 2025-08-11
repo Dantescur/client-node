@@ -19,15 +19,19 @@ export class Coins {
   async getV2(params?: CoinsV2Params): Promise<CoinsV2Response> {
     const queryParams = new URLSearchParams()
 
-    Object.entries(params || {}).forEach(([key, value]) => {
-      if (value !== undefined) {
-        queryParams.append(key, String(value))
-      }
-    })
+    if (params) {
+      Object.entries(params).forEach(([key, value]) => {
+        if (value !== undefined) {
+          queryParams.append(key, String(value))
+        }
+      })
+    }
+
+    const url = `/coins/v2${queryParams.toString() ? `?${queryParams.toString()}` : ''}`
 
     return await this.client.request<CoinsV2Response>({
       method: 'GET',
-      url: `/coins/v2${queryParams.toString() ? `?${queryParams}` : ''}`,
+      url,
     })
   }
 
