@@ -94,13 +94,11 @@ export class P2P {
       if (params.vip) queryParams.append('vip', 'true')
     }
 
-    const queryString = queryParams.toString()
-      ? String(queryParams.toString())
-      : ''
+    const url = `/p2p/index${queryParams.toString() ? `?${queryParams.toString()}` : ''}`
 
     return await this.client.request({
       method: 'GET',
-      url: `/p2p/index${queryString}`,
+      url,
     })
   }
 
