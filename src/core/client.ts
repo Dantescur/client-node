@@ -6,6 +6,7 @@ import axios, {
 import { App } from '../api/app'
 import { Auth } from '../api/auth'
 import { Coins } from '../api/coins'
+import { Merchants } from '../api/merchants'
 import { P2P } from '../api/p2p'
 import { Transactions } from '../api/transactions'
 import { User } from '../api/user'
@@ -23,6 +24,7 @@ export class QvaPayClient {
   public p2p: P2P
   public user: User
   public transactions: Transactions
+  public merchants: Merchants
 
   constructor(
     config: { baseUrl?: string; authToken?: string; debug?: boolean } = {},
@@ -70,6 +72,7 @@ export class QvaPayClient {
     this.p2p = new P2P(this)
     this.user = new User(this)
     this.transactions = new Transactions(this)
+    this.merchants = new Merchants(this)
   }
 
   private debugRequest(config: AxiosRequestConfig) {
