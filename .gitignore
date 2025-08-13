@@ -2,6 +2,5 @@ node_modules
 .env
 dist
 .eslintcache
-pnpm-lock.yaml
 pnpm-workspace.yaml
 coverage
