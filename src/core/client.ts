@@ -8,11 +8,11 @@ import { Auth } from '../api/auth'
 import { Coins } from '../api/coins'
 import { Merchants } from '../api/merchants'
 import { P2P } from '../api/p2p'
+import { PaymentLink } from '../api/paymentLink'
 import { Store } from '../api/store'
 import { Transactions } from '../api/transactions'
 import { User } from '../api/user'
 import { handleApiError } from './errors'
-import { PaymentLink } from '../api/paymentLink'
 
 export class QvaPayClient {
   private instance: AxiosInstance
