@@ -28,6 +28,19 @@ import type {
   P2POffersResponse,
 } from './p2p'
 import type {
+  LatestTransactionsParams,
+  PayTransactionParams,
+  PayTransactionResponse,
+  SearchTransactionsParams,
+  TransactionPDFParams,
+  TransactionsDetailsParams,
+  TransactionsResponse,
+  TransferParams,
+  TransferResponse,
+  WithdrawDetailsResponse,
+  WithdrawResponse,
+} from './transactions'
+import type {
   GoldPurchaseResponse,
   Me,
   MeExtendedResponse,
@@ -36,8 +49,8 @@ import type {
   UpdateUserParams,
   UpdateUserResponse,
   UserSearchResult,
+  UserWithdrawResponse,
   WithdrawRequest,
-  WithdrawResponse,
 } from './user'
 
 export type {
@@ -56,6 +69,7 @@ export type {
   CreateP2POfferResponse,
   GetOfferParams,
   GoldPurchaseResponse,
+  LatestTransactionsParams,
   LoginParams,
   LoginResponse,
   Me,
@@ -65,13 +79,23 @@ export type {
   P2POffer,
   P2POfferDetails,
   P2POffersResponse,
+  PayTransactionParams,
+  PayTransactionResponse,
   RegisterParams,
   RegisterResponse,
+  SearchTransactionsParams,
   TopUpParams,
   TopUpResponse,
+  TransactionPDFParams,
+  TransactionsDetailsParams,
+  TransactionsResponse,
+  TransferParams,
+  TransferResponse,
   UpdateUserParams,
   UpdateUserResponse,
   UserSearchResult,
+  UserWithdrawResponse,
+  WithdrawDetailsResponse,
   WithdrawRequest,
   WithdrawResponse,
 }

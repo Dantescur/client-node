@@ -1,1 +1,2 @@
-export * from './api'
+export * from './interfaces'
+export { QvaPayClient } from './core/client'

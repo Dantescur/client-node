@@ -74,7 +74,7 @@ export interface WithdrawRequest {
   note?: string
 }
 
-export interface WithdrawResponse {
+export interface UserWithdrawResponse {
   userId: number
   transaction_id: number
   amount: number
