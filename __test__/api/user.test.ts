@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { User } from '../../src/api/user'
 import { QvaPayClient } from '../../src/core/client'
 import type {
