@@ -12,6 +12,7 @@ import { Store } from '../api/store'
 import { Transactions } from '../api/transactions'
 import { User } from '../api/user'
 import { handleApiError } from './errors'
+import { PaymentLink } from '../api/paymentLink'
 
 export class QvaPayClient {
   private instance: AxiosInstance
@@ -27,6 +28,7 @@ export class QvaPayClient {
   public transactions: Transactions
   public merchants: Merchants
   public store: Store
+  public paymentLink: PaymentLink
 
   constructor(
     config: { baseUrl?: string; authToken?: string; debug?: boolean } = {},
@@ -76,6 +78,7 @@ export class QvaPayClient {
     this.transactions = new Transactions(this)
     this.merchants = new Merchants(this)
     this.store = new Store(this)
+    this.paymentLink = new PaymentLink(this)
   }
 
   private debugRequest(config: AxiosRequestConfig) {
