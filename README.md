@@ -254,7 +254,7 @@ try {
   // Asumiendo que `clienteAutenticado` es una instancia con un token
   await clienteAutenticado.auth.check()
   console.log('El token es válido.')
-} catch (error) {
+} catch {
   console.error('El token no es válido o ha expirado.')
 }
 ```
@@ -274,7 +274,7 @@ factores (2FA) activada.
 try {
   const { access_token, me } = await qvapay.auth.twoFactorCheck('123456')
   console.log('¡Login con 2FA exitoso!')
-} catch (error) {
+} catch {
   console.error('El código 2FA es incorrecto.')
 }
 ```
